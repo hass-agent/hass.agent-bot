@@ -19,7 +19,9 @@ async def on_ready():
     name="test", description="Test if bot is connected", guild_ids=[1173033284519862392]
 )
 async def test(interaction: Interaction):
-    await interaction.response.send_message("Bot is currently connected! :smile:")
+    await interaction.response.send_message(
+        "Bot is currently connected! :smile:", ephemeral=True
+    )
 
 
 bot.load_extension("get_help_cog")  # Load Get Help
