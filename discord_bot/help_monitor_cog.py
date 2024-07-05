@@ -8,7 +8,7 @@ class HelpMonitorCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.monitor_channels = [1173033285845266515]
-        self.excluded_users = [638245963240046592, 135056992745029632]
+        self.excluded_users = [135056992745029632]  # 638245963240046592,
         self.last_reminder_message = None
 
     @commands.Cog.listener()
@@ -30,12 +30,12 @@ class HelpMonitorCog(commands.Cog):
                 # Create an embed for the response
                 embed = nextcord.Embed(
                     title="Channel Monitor Bot",
-                    description=f"Hey {message.author.mention},\n\nIt looks like you might need help! Please head over to the help channel so that discussion is organized and we can get answers quicker!\n\n**<#1173034142603165756>**",
+                    description=f"It looks like you might need help! Please use the help channel for much quicker responses!\n\nTo move your message to a new help request; `Right-click message -> Apps -> Move to Get Help`, and fill out the options.",
                     color=0x42BDF5,
                 )
 
                 # Send the embed as a response and store the message
-                self.last_reminder_message = await message.channel.send(embed=embed)
+                self.last_reminder_message = await message.reply(embed=embed)
 
 
 def setup(bot):
