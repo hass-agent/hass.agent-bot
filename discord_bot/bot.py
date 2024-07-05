@@ -27,5 +27,6 @@ async def test(interaction: Interaction):
 bot.load_extension("get_help_cog")  # Load Get Help
 bot.load_extension("help_monitor_cog")  # Load Help Monitor
 bot.load_extension("message_management_cog")  # Load Message Management
+bot.load_extension("details_cog")  # Load Details
 
 bot.run(os.getenv("DISCORD_BOT_TOKEN"))
