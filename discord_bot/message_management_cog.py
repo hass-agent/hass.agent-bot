@@ -40,10 +40,18 @@ class MoveThreadModal(nextcord.ui.Modal):
         for id in self.selected_tags:
             tags.append(nextcord.ForumTag(id=id, name=None))
 
-        await self.channel.create_thread(
+        content = (
+            f"### This thread was auto created from [this message]({self.message.jump_url}) by <@{self.message.author.id}>.\n"
+            + self.message.content
+        )
+
+        thread = await self.channel.create_thread(
             name=self.thread_title.value,
-            content=self.message,
+            content=content,
             applied_tags=tags,
+        )
+        await thread.send(
+            content=f"<@{self.message.author.id}>, here is a thread for your [original message]({self.message.jump_url})."
         )
 
 
@@ -86,7 +94,7 @@ class MessageManagementCog(commands.Cog):
 
         # Send the view with the select menu to the user
         view = MoveThreadView(
-            channel=self.bot.get_channel(HELP_CHANNEL_ID), message=message.content
+            channel=self.bot.get_channel(HELP_CHANNEL_ID), message=message
         )
         await interaction.response.send_message(
             "Select tags for the new thread:", view=view, ephemeral=True
