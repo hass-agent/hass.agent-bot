@@ -2,16 +2,17 @@ import asyncio
 import nextcord
 from nextcord.ext import commands
 
+HELP_CHANNEL_ID = 1173034142603165756
+
 
 class GetHelpCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.help_channel_id = 1173034142603165756
 
     @commands.Cog.listener()
     async def on_thread_create(self, thread):
         # Check if the thread is created in the specific target channel
-        if thread.parent.id == self.help_channel_id:
+        if thread.parent.id == HELP_CHANNEL_ID:
             # Retrieve and process tags from the thread
             tags = [tag.name.lower() for tag in thread.applied_tags]
 
