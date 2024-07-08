@@ -13,6 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy bot files into the container
 COPY discord_bot bot
 
-# Run the bot and flask app
-
+# Run the bot
 CMD ["sh", "-c", "python bot/bot.py"]
