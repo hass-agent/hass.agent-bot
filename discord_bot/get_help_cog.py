@@ -55,7 +55,8 @@ class GetHelpCog(commands.Cog):
             await asyncio.sleep(5)
             try:
                 await thread.send(
-                    embed=mark_solution_embed, file=nextcord.File("mark_solution.png")
+                    embed=mark_solution_embed,
+                    file=nextcord.File("/app/bot/mark_solution.png"),
                 )
                 await thread.send(embed=tags_embed)
 
