@@ -45,13 +45,10 @@ class MoveThreadModal(nextcord.ui.Modal):
             + self.message.content
         )
 
-        thread = await self.channel.create_thread(
+        await self.channel.create_thread(
             name=self.thread_title.value,
             content=content,
             applied_tags=tags,
-        )
-        await thread.send(
-            content=f"<@{self.message.author.id}>, here is a thread for your [original message]({self.message.jump_url})."
         )
 
 
