@@ -3,9 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 import nextcord
 from nextcord import Interaction
 from nextcord.ext import commands
-from dotenv import load_dotenv
 
-load_dotenv("../.env")
 
 bot = commands.Bot(command_prefix="!", intents=nextcord.Intents.all())
 
