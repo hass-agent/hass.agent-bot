@@ -40,7 +40,7 @@ class GetHelpCog(commands.Cog):
 
             if "ha issue" in tags:
                 users_to_ping.add(638245963240046592)
-                tags_embed.description += "\n\n**Please provide us with your integration version number.**\n> You can find it in `HACS -> HASS.Agent -> Top left` for installed version number."
+                tags_embed.description += "\n\n**Please provide us with your integration version number.**\n> You can find it in `HACS -> HASS.Agent 2 -> Top left` for installed version number."
 
             if "documentation" in tags:
                 users_to_ping.add(638245963240046592)
